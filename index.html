@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portail de Gestion de Projets - ESN</title>
+    <meta name="description" content="Portail web de gestion de projets pour entreprise de services numériques">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <!-- En-tête avec navigation -->
+    <header class="header">
+        <nav class="navbar" role="navigation" aria-label="Navigation principale">
+            <div class="nav-container">
+                <div class="nav-brand">
+                    <div class="logo">
+                        <div class="logo-icon">P</div>
+                        <span class="logo-text">ProjectHub</span>
+                    </div>
+                </div>
+                
+                <!-- Menu hamburger pour mobile -->
+                <button class="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false">
+                    <span class="hamburger"></span>
+                    <span class="hamburger"></span>
+                    <span class="hamburger"></span>
+                </button>
+                
+                <!-- Menu de navigation -->
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link active" aria-current="page">Collaborateurs</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#about" class="nav-link">À propos</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Contenu principal -->
+    <main class="main-content">
+        <!-- Section titre principal -->
+        <section class="main-title-section" aria-labelledby="main-title">
+            <div class="container">
+                <h1 id="main-title">Gestion des Collaborateurs</h1>
+                <p class="subtitle">Consultez et gérez les projets de vos collaborateurs</p>
+            </div>
+        </section>
+
+        <!-- Section de recherche -->
+        <section class="search-section" aria-labelledby="search-title">
+            <div class="container">
+                <div class="search-container">
+                    <div class="search-input-wrapper">
+                        <span class="search-icon">🔍</span>
+                        <input 
+                            type="text" 
+                            id="searchInput" 
+                            class="search-input" 
+                            placeholder="Rechercher un collaborateur..."
+                            aria-label="Rechercher un collaborateur"
+                        >
+                    </div>
+                    <div class="sort-container">
+                        <label for="sortSelect" class="sort-label">Trier par:</label>
+                        <select id="sortSelect" class="sort-select" aria-label="Trier par">
+                            <option value="default">Par défaut</option>
+                            <option value="name">Nom</option>
+                            <option value="company">Entreprise</option>
+                            <option value="tasks">Tâches</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Loader -->
+        <div id="loader" class="loader" aria-hidden="true">
+            <div class="loader-spinner"></div>
+            <p>Chargement des données...</p>
+        </div>
+
+        <!-- Section des utilisateurs -->
+        <section class="users-section" aria-labelledby="users-title">
+            <div class="container">
+                <h2 id="users-title">Nos Collaborateurs</h2>
+                <div id="usersGrid" class="users-grid" role="grid" aria-label="Liste des collaborateurs et leurs projets">
+                    <!-- Les utilisateurs seront chargés dynamiquement ici -->
+                </div>
+                <div id="noResults" class="no-results" style="display: none;">
+                    <p>Aucun résultat trouvé pour votre recherche.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section À propos -->
+        <section id="about" class="about-section" aria-labelledby="about-title">
+            <div class="container">
+                <h2 id="about-title">À propos du Portail ESN</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>Le Portail de Gestion de Projets ESN est une application web moderne développée pour centraliser et optimiser la gestion des projets au sein de notre entreprise de services numériques.</p>
+                        
+                        <h3>Notre Mission</h3>
+                        <p>Simplifier la gestion des projets en offrant une vue d'ensemble claire et intuitive de tous les collaborateurs et de leurs tâches en cours.</p>
+                        
+                        <h3>Fonctionnalités Principales</h3>
+                        <ul>
+                            <li><strong>Visualisation centralisée</strong> : Consultez tous les projets et collaborateurs en un seul endroit</li>
+                            <li><strong>Recherche intelligente</strong> : Trouvez rapidement un projet ou un collaborateur</li>
+                            <li><strong>Gestion des tâches</strong> : Ajoutez et suivez l'avancement des tâches</li>
+                            <li><strong>Interface responsive</strong> : Accessible sur tous les appareils</li>
+                        </ul>
+                        
+                        <h3>Technologies Utilisées</h3>
+                        <p>Cette application utilise les technologies web modernes : HTML5, CSS3 et JavaScript ES6+ pour offrir une expérience utilisateur optimale.</p>
+                    </div>
+                    
+                    <div class="about-stats">
+                        <div class="stat-card">
+                            <div class="stat-number">10+</div>
+                            <div class="stat-label">Collaborateurs</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">200+</div>
+                            <div class="stat-label">Tâches Gérées</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">100%</div>
+                            <div class="stat-label">Responsive</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Pied de page -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 ESN - Portail de Gestion de Projets. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts JavaScript -->
+    <script src="js/utils.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
