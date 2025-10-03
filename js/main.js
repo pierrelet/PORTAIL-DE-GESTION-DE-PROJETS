@@ -156,12 +156,14 @@ const createUserCard = (user) => {
     const pendingTodos = user.todos.filter(todo => !todo.completed).length;
     const initials = Utils.getInitials(user.name);
     const completionPercentage = user.todos.length > 0 ? Math.round((completedTodos / user.todos.length) * 100) : 0;
+    const profileImage = `assets/images/${user.id}.jpg`;
 
     return `
         <div class="user-card" data-user-id="${user.id}" role="gridcell">
             <div class="user-card-header">
                 <div class="user-avatar" aria-label="Avatar de ${Utils.escapeHtml(user.name)}">
-                    ${initials}
+                    <img src="${profileImage}" alt="${Utils.escapeHtml(user.name)}" class="profile-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="avatar-fallback" style="display: none;">${initials}</div>
                 </div>
                 <div class="user-info">
                     <h3>${Utils.escapeHtml(user.name)}</h3>
@@ -344,11 +346,13 @@ const renderUserInfo = (userData) => {
     const initials = Utils.getInitials(userData.name);
     const completedTodos = userData.todos.filter(todo => todo.completed).length;
     const pendingTodos = userData.todos.filter(todo => !todo.completed).length;
+    const profileImage = `assets/images/${userData.id}.jpg`;
 
     userInfoContainer.innerHTML = `
         <div class="user-info-header">
             <div class="user-info-avatar" aria-label="Avatar de ${Utils.escapeHtml(userData.name)}">
-                ${initials}
+                <img src="${profileImage}" alt="${Utils.escapeHtml(userData.name)}" class="profile-image-large" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="avatar-fallback-large" style="display: none;">${initials}</div>
             </div>
             <div class="user-info-details">
                 <h2>${Utils.escapeHtml(userData.name)}</h2>
