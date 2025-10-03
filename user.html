@@ -3,109 +3,100 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Détail Utilisateur - Portail ESN</title>
-    <meta name="description" content="Détail de l'utilisateur et gestion de ses tâches">
-    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <title>Détail Collaborateur - ProjectHub</title>
+    <meta name="description" content="Détail du collaborateur et gestion de ses tâches">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/responsive.css">
 </head>
 <body>
-    <!-- En-tête avec navigation -->
     <header class="header">
         <nav class="navbar" role="navigation" aria-label="Navigation principale">
             <div class="nav-container">
                 <div class="nav-brand">
-                    <h1>Portail ESN</h1>
+                    <div class="logo">
+                        <div class="logo-icon">P</div>
+                        <span class="logo-text">ProjectHub</span>
+                    </div>
                 </div>
                 
-                <!-- Menu hamburger pour mobile -->
                 <button class="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false">
                     <span class="hamburger"></span>
                     <span class="hamburger"></span>
                     <span class="hamburger"></span>
                 </button>
                 
-                <!-- Menu de navigation -->
                 <ul class="nav-menu">
                     <li class="nav-item">
-                        <a href="index.html" class="nav-link">Collaborateurs</a>
+                        <a href="index.html" class="nav-link">Accueil</a>
                     </li>
                     <li class="nav-item">
                         <a href="index.html#about" class="nav-link">À propos</a>
+                    </li>
+                    <li class="nav-item">
+                        <button class="theme-toggle" id="theme-toggle" aria-label="Changer le thème">
+                            🌙
+                        </button>
                     </li>
                 </ul>
             </div>
         </nav>
     </header>
 
-    <!-- Contenu principal -->
     <main class="main-content">
-        <!-- Bouton de retour -->
         <div class="container">
             <a href="index.html" class="back-btn" aria-label="Retour aux collaborateurs">
                 ← Retour aux collaborateurs
             </a>
-        </div>
 
-        <!-- Loader -->
-        <div id="loader" class="loader" aria-hidden="true">
-            <div class="loader-spinner"></div>
-            <p>Chargement des données...</p>
-        </div>
+            <section id="user-info" class="user-info-section">
+            </section>
 
-        <!-- Section utilisateur -->
-        <section class="user-detail-section" aria-labelledby="user-title">
-            <div class="container">
-                <div id="userInfo" class="user-info" role="region" aria-labelledby="user-title">
-                    <!-- Les informations utilisateur seront chargées ici -->
-                </div>
-            </div>
-        </section>
-
-        <!-- Section des tâches -->
-        <section class="todos-section" aria-labelledby="todos-title">
-            <div class="container">
-                <h2 id="todos-title">Tâches</h2>
+            <section class="todos-section">
+                <h2>Gestion des tâches</h2>
                 
-                <!-- Formulaire d'ajout de tâche -->
-                <div class="add-todo-form-container">
-                    <h3>Ajouter une nouvelle tâche</h3>
-                    <form id="addTodoForm" class="add-todo-form" aria-labelledby="add-todo-title">
-                        <div class="form-group">
-                            <label for="todoTitle" class="form-label">Titre de la tâche :</label>
-                            <input 
-                                type="text" 
-                                id="todoTitle" 
-                                name="title" 
-                                class="form-input" 
-                                required 
-                                aria-describedby="todoTitleHelp"
-                                placeholder="Entrez le titre de la tâche"
-                            >
-                            <small id="todoTitleHelp" class="form-help">Le titre doit contenir au moins 3 caractères</small>
-                        </div>
-                        <button type="submit" class="btn btn-primary">
-                            Ajouter la tâche
-                        </button>
-                    </form>
-                </div>
+                <form id="add-todo-form" class="add-todo-form">
+                    <div class="form-group">
+                        <label for="todo-title" class="form-label">Nouvelle tâche</label>
+                        <input type="text" id="todo-title" class="form-input" placeholder="Saisissez le titre de la tâche..." required>
+                    </div>
+                    <button type="submit" class="btn-primary">Ajouter la tâche</button>
+                </form>
 
-                <!-- Liste des tâches -->
-                <div id="todosList" class="todos-list" role="list" aria-label="Liste des tâches">
-                    <!-- Les tâches seront chargées ici -->
+                <div id="todos-list" class="todos-grid">
                 </div>
-            </div>
-        </section>
+            </section>
+        </div>
     </main>
 
-    <!-- Pied de page -->
     <footer class="footer">
-        <div class="container">
-            <p>&copy; 2024 ESN - Portail de Gestion de Projets. Tous droits réservés.</p>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>ProjectHub</h3>
+                <p>Portail de gestion de projets pour ESN</p>
+            </div>
+            <div class="footer-section">
+                <h3>Développeur</h3>
+                <p class="developer-name">Pierre Relet</p>
+                <p class="developer-title">Développeur Web</p>
+            </div>
+            <div class="footer-section">
+                <h3>Technologies</h3>
+                <div class="tech-tags">
+                    <span class="tech-tag">HTML</span>
+                    <span class="tech-tag">CSS</span>
+                    <span class="tech-tag">JavaScript</span>
+                </div>
+            </div>
         </div>
     </footer>
 
-    <!-- Scripts JavaScript -->
+    <div id="loader" class="loader">
+        <div class="loader-spinner"></div>
+    </div>
+
+    <div id="error-container" style="display: none;"></div>
+    <div id="success-container" style="display: none;"></div>
+
     <script src="js/utils.js"></script>
     <script src="js/api.js"></script>
     <script src="js/main.js"></script>

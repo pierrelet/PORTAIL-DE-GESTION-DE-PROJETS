@@ -1,8 +1,4 @@
-/* Responsive Design - Mobile First Approach */
-
-/* Mobile Styles (default) */
 @media screen and (max-width: 767px) {
-    /* Navigation */
     .nav-menu {
         position: fixed;
         top: 100%;
@@ -10,7 +6,7 @@
         width: 100%;
         background-color: var(--bg-primary);
         flex-direction: column;
-        padding: var(--spacing-lg);
+        padding: var(--spacing-xl);
         box-shadow: var(--shadow-lg);
         transform: translateY(-100%);
         opacity: 0;
@@ -18,8 +14,9 @@
         transition: all 0.3s ease;
         z-index: 999;
         border-top: 1px solid var(--border-color);
+        gap: var(--spacing-lg);
     }
-
+    
     .nav-menu.active {
         transform: translateY(0);
         opacity: 1;
@@ -27,7 +24,9 @@
     }
 
     .nav-toggle {
-        display: flex;
+        display: flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
     }
 
     .nav-toggle.active .hamburger:nth-child(1) {
@@ -41,60 +40,63 @@
     .nav-toggle.active .hamburger:nth-child(3) {
         transform: rotate(45deg) translate(-5px, -6px);
     }
+    
+    .nav-menu .nav-item {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .nav-menu .nav-link {
+        display: block;
+        padding: var(--spacing-lg);
+        font-size: var(--font-size-lg);
+        font-weight: 500;
+        color: var(--text-primary);
+        text-decoration: none;
+        border-radius: var(--radius-md);
+        transition: all 0.3s ease;
+        border: 1px solid transparent;
+    }
+    
+    .nav-menu .nav-link:hover {
+        background-color: var(--bg-secondary);
+        border-color: var(--primary-color);
+        color: var(--primary-color);
+        transform: translateY(-2px);
+    }
+    
+    .nav-menu .nav-link.active {
+        background-color: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
+    }
+    
+    .nav-menu .theme-toggle {
+        width: 100%;
+        margin: 0;
+        padding: var(--spacing-lg);
+        font-size: var(--font-size-lg);
+        border: 2px solid var(--border-color);
+        background-color: var(--bg-secondary);
+    }
+    
+    .nav-menu .theme-toggle:hover {
+        background-color: var(--bg-tertiary);
+        border-color: var(--primary-color);
+    }
 
-    /* Hero Section */
     .hero {
         padding: var(--spacing-xl) 0;
     }
 
-    .hero-content h2 {
+    .hero h1 {
         font-size: var(--font-size-2xl);
     }
 
-    .hero-content p {
+    .hero p {
         font-size: var(--font-size-base);
     }
 
-    /* Search Section */
-    .search-section {
-        padding: var(--spacing-xl) 0;
-    }
-
-    .search-container {
-        flex-direction: column;
-        gap: var(--spacing-md);
-    }
-
-    .search-input {
-        width: 100%;
-    }
-
-    .search-btn {
-        width: 100%;
-    }
-
-    .filter-container {
-        flex-direction: column;
-        gap: var(--spacing-sm);
-    }
-
-    /* About Section */
-    .about-content {
-        grid-template-columns: 1fr;
-        gap: var(--spacing-lg);
-    }
-
-    .about-stats {
-        flex-direction: row;
-        justify-content: space-around;
-    }
-
-    .stat-card {
-        flex: 1;
-        margin: 0 var(--spacing-xs);
-    }
-
-    /* Users Grid */
     .users-grid {
         grid-template-columns: 1fr;
         gap: var(--spacing-md);
@@ -104,333 +106,85 @@
         padding: var(--spacing-md);
     }
 
-    .user-stats {
-        flex-direction: column;
-        gap: var(--spacing-sm);
-    }
-
-    .stat {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: var(--spacing-sm);
-        background-color: var(--bg-secondary);
-        border-radius: var(--radius-sm);
-    }
-
-    /* User Detail Page */
-    .user-info {
-        padding: var(--spacing-lg);
-    }
-
-    .user-info-header {
-        flex-direction: column;
+    .user-info-grid {
+        grid-template-columns: 1fr;
         text-align: center;
-        gap: var(--spacing-md);
+        gap: var(--spacing-lg);
     }
 
     .user-info-avatar {
-        margin-right: 0;
+        margin: 0 auto;
     }
 
-    .user-info-grid {
-        grid-template-columns: 1fr;
-        gap: var(--spacing-md);
+    .user-stats {
+        justify-content: center;
     }
 
-    /* Add Todo Form */
-    .add-todo-form {
+    .search-container {
         flex-direction: column;
-        gap: var(--spacing-md);
-    }
-
-    .add-todo-form-container {
-        padding: var(--spacing-lg);
-    }
-
-    /* Todos List */
-    .todo-card {
         padding: var(--spacing-md);
     }
 
-    .todo-card-header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: var(--spacing-sm);
+    .search-input-wrapper {
+        max-width: 100%;
+        margin-bottom: var(--spacing-md);
     }
 
-    /* Container */
-    .container {
-        padding: 0 var(--spacing-sm);
-    }
-
-    /* Typography adjustments */
-    h1 { font-size: var(--font-size-2xl); }
-    h2 { font-size: var(--font-size-xl); }
-    h3 { font-size: var(--font-size-lg); }
-}
-
-/* Tablet Styles */
-@media screen and (min-width: 768px) and (max-width: 1023px) {
-    /* Navigation */
-    .nav-menu {
-        gap: var(--spacing-md);
-    }
-
-    /* About Section */
     .about-content {
+        padding: 0 var(--spacing-md);
+    }
+
+    .about-stats {
         grid-template-columns: 1fr;
-        gap: var(--spacing-lg);
-    }
-
-    .about-stats {
-        flex-direction: row;
-        justify-content: space-around;
-    }
-
-    .stat-card {
-        flex: 1;
-        margin: 0 var(--spacing-xs);
-    }
-
-    /* Users Grid */
-    .users-grid {
-        grid-template-columns: repeat(2, 1fr);
         gap: var(--spacing-md);
     }
 
-    /* User Info Grid */
-    .user-info-grid {
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .footer-section h3::after {
+        margin: var(--spacing-sm) auto 0;
+    }
+
+    .tech-tags {
+        justify-content: center;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    .users-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 
-    /* Search Container */
-    .search-container {
-        max-width: 500px;
+    .about-stats {
+        grid-template-columns: repeat(2, 1fr);
     }
 
-    /* Add Todo Form */
-    .add-todo-form {
-        flex-direction: row;
-        align-items: end;
-    }
-
-    .form-group {
-        flex: 1;
+    .footer-content {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
-/* Desktop Styles */
-@media screen and (min-width: 1024px) {
-    /* Navigation */
+@media screen and (min-width: 1025px) {
     .nav-toggle {
-        display: none;
+        display: none !important;
     }
-
+    
     .nav-menu {
-        display: flex;
+        display: flex !important;
     }
 
-    /* Hero Section */
-    .hero {
-        padding: var(--spacing-2xl) 0;
-    }
-
-    .hero-content h2 {
-        font-size: var(--font-size-3xl);
-    }
-
-    /* About Section */
-    .about-content {
-        grid-template-columns: 2fr 1fr;
-        gap: var(--spacing-2xl);
+    .users-grid {
+        grid-template-columns: repeat(3, 1fr);
     }
 
     .about-stats {
-        flex-direction: column;
-        gap: var(--spacing-lg);
-    }
-
-    .stat-card {
-        flex: none;
-        margin: 0;
-    }
-
-    /* Users Grid */
-    .users-grid {
         grid-template-columns: repeat(3, 1fr);
     }
 
-    /* User Info Grid */
-    .user-info-grid {
+    .footer-content {
         grid-template-columns: repeat(3, 1fr);
-    }
-
-    /* Search Container */
-    .search-container {
-        max-width: 600px;
-    }
-
-    /* Hover effects for desktop */
-    .user-card:hover {
-        transform: translateY(-4px);
-    }
-
-    .btn:hover {
-        transform: translateY(-1px);
-    }
-
-    .todo-card:hover {
-        transform: translateY(-2px);
-    }
-}
-
-/* Large Desktop Styles */
-@media screen and (min-width: 1440px) {
-    .container {
-        max-width: 1400px;
-    }
-
-    .users-grid {
-        grid-template-columns: repeat(4, 1fr);
-    }
-
-    .user-info-grid {
-        grid-template-columns: repeat(4, 1fr);
-    }
-}
-
-/* Print Styles */
-@media print {
-    .header,
-    .footer,
-    .search-section,
-    .add-todo-form-container {
-        display: none;
-    }
-
-    .main-content {
-        margin: 0;
-        padding: 0;
-    }
-
-    .user-card,
-    .todo-card {
-        break-inside: avoid;
-        box-shadow: none;
-        border: 1px solid #ccc;
-    }
-
-    body {
-        font-size: 12pt;
-        line-height: 1.4;
-    }
-
-    h1, h2, h3, h4, h5, h6 {
-        page-break-after: avoid;
-    }
-}
-
-/* High Contrast Mode */
-@media (prefers-contrast: high) {
-    :root {
-        --primary-color: #0000ff;
-        --text-primary: #000000;
-        --text-secondary: #333333;
-        --bg-primary: #ffffff;
-        --bg-secondary: #f0f0f0;
-        --border-color: #000000;
-    }
-
-    .user-card,
-    .todo-card {
-        border: 2px solid var(--border-color);
-    }
-}
-
-/* Reduced Motion */
-@media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-        scroll-behavior: auto !important;
-    }
-
-    .loader-spinner {
-        animation: none;
-    }
-
-    .fade-in,
-    .slide-in {
-        animation: none;
-    }
-}
-
-/* Dark Mode Support */
-@media (prefers-color-scheme: dark) {
-    :root {
-        --text-primary: #f1f5f9;
-        --text-secondary: #cbd5e1;
-        --text-light: #94a3b8;
-        --bg-primary: #0f172a;
-        --bg-secondary: #1e293b;
-        --bg-tertiary: #334155;
-        --border-color: #475569;
-        --border-light: #334155;
-    }
-
-    .search-input,
-    .filter-select,
-    .form-input {
-        background-color: var(--bg-secondary);
-        color: var(--text-primary);
-    }
-
-    .user-card,
-    .todo-card,
-    .add-todo-form-container {
-        background-color: var(--bg-secondary);
-        border-color: var(--border-color);
-    }
-}
-
-/* Focus Styles for Accessibility */
-@media (prefers-reduced-motion: no-preference) {
-    .nav-link:focus,
-    .search-input:focus,
-    .filter-select:focus,
-    .form-input:focus,
-    .btn:focus,
-    .back-btn:focus {
-        outline: 2px solid var(--primary-color);
-        outline-offset: 2px;
-    }
-}
-
-/* Landscape Orientation Adjustments */
-@media screen and (orientation: landscape) and (max-height: 500px) {
-    .hero {
-        padding: var(--spacing-md) 0;
-    }
-
-    .hero-content h2 {
-        font-size: var(--font-size-xl);
-        margin-bottom: var(--spacing-sm);
-    }
-
-    .hero-content p {
-        font-size: var(--font-size-sm);
-        margin-bottom: 0;
-    }
-
-    .search-section {
-        padding: var(--spacing-md) 0;
-    }
-
-    .users-section {
-        padding: var(--spacing-md) 0;
     }
 }

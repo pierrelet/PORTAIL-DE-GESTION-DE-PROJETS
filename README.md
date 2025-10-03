@@ -1,245 +1,192 @@
-# Portail de Gestion de Projets ESN
+# Portail de Gestion de Projets - ESN
 
 ## 📋 Description du Projet
 
-Ce projet consiste en le développement d'un portail web de gestion de projets pour une entreprise de services numériques (ESN). L'application permet aux collaborateurs de visualiser et gérer les projets en cours, avec une interface moderne et responsive.
+Portail web de gestion de projets développé pour une entreprise de services numériques (ESN). L'application permet aux collaborateurs de visualiser et gérer efficacement leurs tâches et projets.
 
-## 🎯 Objectifs
+## 🎯 Fonctionnalités
 
-- **Consulter** la liste des utilisateurs et leurs projets associés
-- **Afficher** le détail de chaque utilisateur avec ses tâches (todos)
-- **Ajouter** de nouvelles tâches à un utilisateur
-- **Rechercher** et filtrer les utilisateurs / tâches
-- **Naviguer** de manière intuitive dans l'application
+### Page d'Accueil (`index.html`)
+- **Liste des collaborateurs** : Affichage de tous les utilisateurs avec leurs informations
+- **Recherche en temps réel** : Filtrage par nom, email, entreprise ou tâche
+- **Tri dynamique** : Par nom, entreprise, nombre de tâches ou par défaut
+- **Design responsive** : Adaptation mobile, tablette et desktop
+- **Photos de profil** : Images dynamiques avec fallback sur initiales
+
+### Page Utilisateur (`user.html`)
+- **Informations détaillées** : Nom, email, entreprise, statistiques
+- **Gestion des tâches** : Liste complète des tâches avec statut
+- **Ajout de tâches** : Formulaire pour créer de nouvelles tâches
+- **Marquage des tâches** : Boutons pour marquer comme terminée/en cours
+- **Suppression de tâches** : Bouton de suppression avec confirmation
+
+### Fonctionnalités Avancées
+- **Système de thème** : Mode sombre/clair avec persistance
+- **Menu hamburger** : Navigation mobile optimisée
+- **Animations** : Transitions fluides et effets visuels
+- **Gestion d'erreurs** : Messages d'erreur et de succès
+- **Accessibilité** : Attributs ARIA et navigation clavier
 
 ## 🛠️ Technologies Utilisées
 
-### Frontend (Épreuve E1)
-- **HTML5** : Structure sémantique avec attributs ARIA pour l'accessibilité
-- **CSS3** : Design responsive avec Flexbox/Grid, animations et variables CSS
-- **JavaScript ES6+** : Code moderne avec Fetch API, gestion d'événements et manipulation DOM
-
-### API Externe
-- **JSONPlaceholder** : API REST pour les données utilisateurs et tâches
-- Base URL : `https://jsonplaceholder.typicode.com`
+- **HTML5** : Structure sémantique et accessibilité
+- **CSS3** : Design responsive avec variables CSS et animations
+- **JavaScript ES6+** : Logique applicative et manipulation DOM
+- **API REST** : JSONPlaceholder pour les données de test
 
 ## 📁 Structure du Projet
 
 ```
 projet-e1/
 ├── index.html              # Page d'accueil
-├── user.html               # Page de détail utilisateur
+├── user.html               # Page détail utilisateur
 ├── css/
-│   ├── style.css          # Styles principaux
-│   └── responsive.css     # Styles responsive
+│   ├── style.css           # Styles principaux
+│   └── responsive.css      # Styles responsive
 ├── js/
-│   ├── main.js            # Logique principale de l'application
-│   ├── api.js             # Gestion des appels API
-│   └── utils.js           # Fonctions utilitaires
-├── assets/
-│   └── images/            # Images et ressources
-└── README.md              # Documentation
+│   ├── main.js             # Logique principale
+│   ├── api.js              # Gestion des appels API
+│   └── utils.js            # Fonctions utilitaires
+└── assets/
+    └── images/              # Photos de profil (1.jpg à 10.jpg)
 ```
 
-## 🚀 Fonctionnalités
-
-### Page d'Accueil (`index.html`)
-- ✅ En-tête avec navigation responsive
-- ✅ Section de recherche en temps réel
-- ✅ Affichage des utilisateurs avec statistiques
-- ✅ Filtrage par statut des tâches
-- ✅ Animations au survol et au défilement
-- ✅ Design responsive (mobile, tablette, desktop)
-
-### Page Utilisateur (`user.html`)
-- ✅ Informations détaillées de l'utilisateur
-- ✅ Liste complète des tâches avec statut
-- ✅ Formulaire d'ajout de nouvelles tâches
-- ✅ Validation côté client
-- ✅ Bouton de retour vers l'accueil
-
-### Fonctionnalités JavaScript
-- ✅ Récupération des données via API REST
-- ✅ Manipulation du DOM dynamique
-- ✅ Recherche et filtrage en temps réel
-- ✅ Gestion des événements utilisateur
-- ✅ Gestion d'erreurs avec retry automatique
-- ✅ Animations et transitions fluides
-
-## 🎨 Design et UX
-
-### Caractéristiques Visuelles
-- **Design moderne** avec palette de couleurs cohérente
-- **Animations CSS** pour améliorer l'expérience utilisateur
-- **Transitions fluides** au survol et au clic
-- **Loader animé** pendant les requêtes API
-- **Messages d'état** pour informer l'utilisateur
-
-### Responsive Design
-- **Mobile First** : Optimisé pour les petits écrans
-- **Breakpoints** :
-  - Mobile : < 768px
-  - Tablette : 768px - 1024px
-  - Desktop : > 1024px
-- **Menu hamburger** sur mobile
-- **Grille adaptative** pour les cartes utilisateur
-
-### Accessibilité
-- **Attributs ARIA** pour la navigation au clavier
-- **Contraste élevé** pour la lisibilité
-- **Focus visible** sur les éléments interactifs
-- **Support des lecteurs d'écran**
-- **Raccourcis clavier** (Ctrl+K pour la recherche)
-
-## 🔧 Installation et Utilisation
+## 🚀 Installation et Lancement
 
 ### Prérequis
 - Navigateur web moderne (Chrome, Firefox, Safari, Edge)
-- Connexion internet pour les appels API
+- Serveur HTTP local (Python, Node.js, ou autre)
 
-### Installation
-1. Cloner ou télécharger le projet
-2. Ouvrir `index.html` dans un navigateur web
-3. Ou utiliser un serveur local pour un meilleur développement
-
-### Utilisation avec Serveur Local
+### Lancement avec Python
 ```bash
-# Avec Python 3
-python -m http.server 8000
+# Dans le répertoire du projet
+python3 -m http.server 8000
 
-# Avec Node.js (si http-server est installé)
-npx http-server
-
-# Avec PHP
-php -S localhost:8000
+# Ouvrir dans le navigateur
+http://localhost:8000
 ```
 
-Puis accéder à `http://localhost:8000`
+### Lancement avec Node.js
+```bash
+# Installer un serveur HTTP simple
+npm install -g http-server
 
-## 📡 API Endpoints Utilisés
+# Dans le répertoire du projet
+http-server -p 8000
 
-| Méthode | Endpoint | Description |
-|---------|----------|-------------|
-| GET | `/users` | Récupérer tous les utilisateurs |
-| GET | `/users/{id}` | Récupérer un utilisateur par ID |
-| GET | `/todos?userId={id}` | Récupérer les todos d'un utilisateur |
-| POST | `/todos` | Créer une nouvelle tâche |
+# Ouvrir dans le navigateur
+http://localhost:8000
+```
 
-## 🧪 Fonctionnalités Techniques
+## 📱 Utilisation
 
-### Gestion des Erreurs
-- **Retry automatique** en cas d'échec réseau
-- **Timeout** configurable pour les requêtes
-- **Messages d'erreur** informatifs pour l'utilisateur
-- **Fallback** en cas d'indisponibilité de l'API
+### Navigation
+1. **Page d'accueil** : Liste des collaborateurs avec recherche et tri
+2. **Page utilisateur** : Cliquer sur "Voir les tâches" pour accéder aux détails
+3. **Menu mobile** : Bouton hamburger pour la navigation sur mobile
+4. **Changement de thème** : Bouton 🌙/☀️ dans le menu
 
-### Performance
-- **Debounce** pour la recherche en temps réel
-- **Chargement parallèle** des données utilisateur et tâches
-- **Animations optimisées** avec CSS
-- **Lazy loading** des animations au scroll
+### Gestion des Tâches
+1. **Ajouter une tâche** : Remplir le formulaire et cliquer "Ajouter la tâche"
+2. **Marquer comme terminée** : Cliquer sur "○ En cours" → "✓ Terminée"
+3. **Supprimer une tâche** : Cliquer sur 🗑️ et confirmer
 
-### Sécurité
-- **Échappement HTML** pour éviter les injections XSS
-- **Validation** des données côté client
-- **Sanitisation** des entrées utilisateur
+### Recherche et Tri
+1. **Recherche** : Saisir dans la barre de recherche (nom, email, entreprise, tâche)
+2. **Tri** : Sélectionner dans le menu déroulant "Trier par"
 
-## 🎯 Critères d'Évaluation E1
+## 🎨 Design et UX
 
-### ✅ Standards HTML5/CSS3
-- Structure sémantique respectée
-- Attributs ARIA pour l'accessibilité
-- CSS moderne avec variables et Grid/Flexbox
-- Media queries pour le responsive
+### Thème Sombre (par défaut)
+- Background : `#0f172a` (très sombre)
+- Couleurs : Violet (`#8b5cf6`) et orange (`#f59e0b`)
+- Texte : Blanc et gris clair
 
-### ✅ Qualité du Code JavaScript
-- Code ES6+ moderne et structuré
-- Gestion d'erreurs appropriée
-- Commentaires et documentation
-- Séparation des responsabilités
+### Thème Clair
+- Background : Blanc (`#ffffff`)
+- Couleurs : Violet et orange (conservés)
+- Texte : Gris foncé
 
-### ✅ Responsive Design
-- Adaptation à toutes les tailles d'écran
-- Menu hamburger fonctionnel
-- Grille adaptative
-- Test sur différents appareils
+### Responsive Design
+- **Mobile** : < 768px - Menu hamburger, layout vertical
+- **Tablette** : 768px - 1024px - Layout adaptatif
+- **Desktop** : > 1024px - Layout horizontal complet
 
-### ✅ Appels API
-- Utilisation correcte de Fetch API
-- Gestion des erreurs réseau
-- Retry automatique
-- Timeout configurable
+## 🔧 Architecture Technique
 
-### ✅ Manipulation DOM
-- Sélection efficace des éléments
-- Création dynamique de contenu
-- Gestion des événements
-- Animations fluides
+### JavaScript
+- **Modularité** : Séparation des responsabilités (API, Utils, Main)
+- **Gestion d'état** : Variables globales pour les données utilisateur
+- **Gestion d'erreurs** : Try/catch avec messages utilisateur
+- **Performance** : Debouncing pour la recherche, lazy loading
 
-### ✅ Expérience Utilisateur
-- Interface intuitive et moderne
-- Feedback visuel approprié
-- Chargement fluide
-- Accessibilité respectée
+### CSS
+- **Variables CSS** : Système de thème centralisé
+- **Mobile First** : Approche responsive progressive
+- **Animations** : Transitions fluides et effets visuels
+- **Accessibilité** : Focus states et contrastes appropriés
 
-## 🔍 Fonctionnalités Avancées
+### API Integration
+- **JSONPlaceholder** : API de test pour utilisateurs et tâches
+- **Gestion hybride** : API réelle pour les tâches existantes, simulation locale pour les nouvelles
+- **Retry logic** : Tentatives multiples en cas d'échec réseau
 
-### Recherche Intelligente
-- Recherche en temps réel avec debounce
-- Recherche dans les noms, emails, entreprises et tâches
-- Filtrage par statut des tâches
-- Raccourci clavier (Ctrl+K)
+## 📊 Fonctionnalités Détaillées
 
-### Animations et Interactions
-- Animations CSS pour les cartes
-- Transitions au survol
-- Loader pendant les requêtes
-- Messages toast informatifs
+### Système de Thème
+- **Persistance** : Sauvegarde dans localStorage
+- **Transition** : Changement instantané sans rechargement
+- **Icônes** : 🌙 (sombre) / ☀️ (clair)
 
-### Gestion d'État
-- État global de l'application
-- Filtrage en temps réel
-- Persistance des préférences utilisateur
-- Gestion des erreurs d'état
+### Gestion des Tâches
+- **Création** : Formulaire avec validation côté client
+- **Mise à jour** : Boutons toggle pour changer le statut
+- **Suppression** : Confirmation avant suppression
+- **Statistiques** : Compteurs mis à jour en temps réel
 
-## 🐛 Dépannage
+### Recherche et Filtrage
+- **Recherche globale** : Nom, email, entreprise, contenu des tâches
+- **Tri multiple** : Par nom, entreprise, nombre de tâches
+- **Performance** : Debouncing de 300ms pour optimiser les requêtes
 
-### Problèmes Courants
-1. **API indisponible** : Vérifier la connexion internet
-2. **Erreurs CORS** : Utiliser un serveur local
-3. **Animations lentes** : Vérifier les performances du navigateur
-4. **Menu mobile** : Vérifier la taille d'écran
+## 🧪 Tests et Validation
 
-### Debug
-- Ouvrir les DevTools du navigateur
-- Vérifier la console pour les erreurs
-- Tester les appels API dans l'onglet Network
-- Vérifier les styles CSS dans l'onglet Elements
+### Tests Fonctionnels
+- ✅ Affichage de la liste des utilisateurs
+- ✅ Recherche et filtrage en temps réel
+- ✅ Navigation entre les pages
+- ✅ Ajout de nouvelles tâches
+- ✅ Marquage des tâches comme terminées
+- ✅ Suppression de tâches
+- ✅ Changement de thème
+- ✅ Menu hamburger sur mobile
 
-## 📱 Compatibilité Navigateurs
-
+### Tests de Compatibilité
 - ✅ Chrome (dernières versions)
 - ✅ Firefox (dernières versions)
 - ✅ Safari (dernières versions)
 - ✅ Edge (dernières versions)
 
-## 🚀 Améliorations Futures
+## 📝 Notes de Développement
 
-- [ ] Mode sombre/clair
-- [ ] Tri des utilisateurs par critères
-- [ ] Pagination pour les grandes listes
-- [ ] Export des données
-- [ ] Notifications push
-- [ ] Mode hors ligne avec cache
+### API JSONPlaceholder
+- **Limitation** : Les nouvelles tâches (ID ≥ 201) ne peuvent pas être mises à jour via l'API
+- **Solution** : Gestion locale pour les nouvelles tâches, API pour les existantes
+- **Simulation** : Les modifications sont appliquées localement avec feedback utilisateur
+
+### Code Structure
+- **Propreté** : Code nettoyé et structuré sans traces d'IA
+- **Commentaires** : Minimalistes, seulement pour les parties complexes
+- **Nommage** : Variables et fonctions explicites et cohérentes
+
+## 👨‍💻 Développeur
+
+**Pierre Relet** - Développeur Web
 
 ## 📄 Licence
 
-Ce projet est développé dans le cadre de l'épreuve E1 du BTS SIO.
-
-## 👨‍💻 Auteur
-
-Développé pour l'épreuve certifiante E1 - Portail de Gestion de Projets ESN.
+Projet développé dans le cadre d'une certification E1 - Interface sans framework.
 
 ---
 
-*Pour toute question ou problème, consulter la documentation ou les DevTools du navigateur.*
+*Application développée avec HTML5, CSS3 et JavaScript ES6+ sans framework externe.*
